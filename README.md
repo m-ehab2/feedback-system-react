@@ -1,54 +1,66 @@
-# React + TypeScript + Vite
+# Feedback Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern feedback management web application built with **React**, **TypeScript**, **Vite**, and **Tailwind CSS**. This project allows users to submit feedback and provides an admin dashboard for managing and viewing customer feedback.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Feedback Form**: Collects name, email, message, and a star rating from users.
+- **Admin Dashboard**: Secure login for admins to view, sort, and paginate feedback entries.
+- **Feedback Details**: View detailed feedback, including ratings and submission date.
+- **Responsive UI**: Clean, mobile-friendly design using Tailwind CSS.
+- **Type-safe**: Built with TypeScript for robust type checking.
+- **Modern Tooling**: Uses Vite for fast development and hot module replacement.
+- **Linting**: ESLint and TypeScript ESLint for code quality.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- [Node.js](https://nodejs.org/) (v16+ recommended)
+- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+
+### Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/your-username/feedback-front.git
+   cd feedback-front
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+   #### The application will be available at `http://localhost:5173` in your browser
+
+## Project Structure
+
+- src/components/Feedback/FeedbackForm.tsx – User feedback form component
+- src/components/Feedback/RatingSelect.tsx – Star rating selector
+- src/pages/Admin/FeedbackListPage.tsx – Admin feedback list with pagination and sorting
+- src/pages/Admin/FeedbackDetailsPage.tsx – Detailed feedback view for admins
+- src/pages/Admin/Login.tsx – Admin login page
+- src/services/feedbacksService.ts – API service for feedback operations
+
+## Linting & Formatting
+
+ESLint is configured for React and TypeScript.
+To run lint checks:
+
+```bash
+npm run lint
+# or
+yarn lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Customization
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Styling : Tailwind CSS is used for styling. You can customize the design via Tailwind utility classes.
+- API Integration : Update src/services/axiosInstance.ts to connect with your backend API.
